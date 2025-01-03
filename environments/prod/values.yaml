@@ -1,0 +1,57 @@
+# Common values
+global:
+  namespace: prod
+  imagePullSecrets:
+    - name: regcred
+
+# Frontend configuration
+frontend:
+  appname: frontend
+  image:
+    repository: 992382853618.dkr.ecr.us-east-1.amazonaws.com/eitan/project
+    tag: frontend-ba90e5c
+    pullPolicy: Always
+  replicaCount: 5
+  service:
+    type: ClusterIP
+    port: 80
+  ingress:
+    enabled: true
+    hosts:
+      - host: frontend.eitp.online
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+  resources:
+    limits:
+      cpu: "500m"
+      memory: "512Mi"
+    requests:
+      cpu: "250m"
+      memory: "256Mi"
+
+# Backend configuration
+backend:
+  appname: backend
+  image:
+    repository: 992382853618.dkr.ecr.us-east-1.amazonaws.com/eitan/project
+    tag: backend-ba90e5c
+    pullPolicy: Always
+  replicaCount: 5
+  service:
+    type: ClusterIP
+    port: 5000
+  ingress:
+    enabled: true
+    hosts:
+      - host: backend.eitp.online
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+  resources:
+    limits:
+      cpu: "1"
+      memory: "1024Mi"
+    requests:
+      cpu: "500m"
+      memory: "512Mi"

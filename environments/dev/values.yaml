@@ -1,6 +1,6 @@
 # Common values
 global:
-  namespace: my-application
+  namespace: dev
   imagePullSecrets:
     - name: regcred
 
