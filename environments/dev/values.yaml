@@ -6,18 +6,19 @@ global:
 
 # Frontend configuration
 frontend:
+  appname: frontend
   image:
     repository: 992382853618.dkr.ecr.us-east-1.amazonaws.com/eitan/project
     tag: frontend-latest
     pullPolicy: Always
-  replicaCount: 2
+  replicaCount: 3
   service:
     type: ClusterIP
     port: 80
   ingress:
     enabled: true
     hosts:
-      - host: frontend.myapp.com
+      - host: frontend.eitp.online
         paths:
           - path: /
             pathType: ImplementationSpecific
@@ -38,11 +39,11 @@ backend:
   replicaCount: 3
   service:
     type: ClusterIP
-    port: 8080
+    port: 5000
   ingress:
     enabled: true
     hosts:
-      - host: backend.myapp.com
+      - host: backend.eitp.online
         paths:
           - path: /
             pathType: ImplementationSpecific
