@@ -32,6 +32,7 @@ frontend:
 
 # Backend configuration
 backend:
+  appname: backend
   image:
     repository: 992382853618.dkr.ecr.us-east-1.amazonaws.com/eitan/project
     tag: backend-ba90e5c
