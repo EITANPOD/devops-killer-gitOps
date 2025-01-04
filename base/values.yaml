@@ -1,0 +1,15 @@
+global:
+  name: devops-killer-project
+  enviroments: test
+
+  image:
+    repository: nginx
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+
+  gitopsRepoURL: https://github.com/EITANPOD/devops-killer-gitOps.git
+
+  projectRepoURL: https://github.com/EITANPOD/devops-killer-project.git
+  targetRevision: HEAD
