@@ -1,6 +1,14 @@
 # Common values
 global:
-  namespace: staging
+  name: devops-killer-project
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+
+  repoURL: https://github.com/EITANPOD/devops-killer-project.git
+  targetRevision: HEAD
+
   imagePullSecrets:
     - name: regcred
 
