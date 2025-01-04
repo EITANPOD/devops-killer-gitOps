@@ -1,6 +1,6 @@
 global:
   name: devops-killer-project
-  enviroments: test
+  environments: test
 
   image:
     repository: nginx
