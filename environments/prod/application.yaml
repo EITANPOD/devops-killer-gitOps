@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.global.name }}
+  namespace: argocd
+
+spec:
+  project: default
+
+  sources:
+  - repoURL: {{ .Values.global.gitopsRepoURL }}
+    targetRevision: {{ .Values.global.targetRevision }}
+    ref: values
+  - repoURL: {{ .Values.global.projectRepoURL }}
+    targetRevision: {{ .Values.global.targetRevision }}
+    path: app-helm-chart
+    helm:
+      valueFiles: 
+        - $values/environments/{{ .Values.global.environments }}/values.yaml
+  destination: 
+    server: {{ .Values.global.destination.server }}
+    namespace: {{ .Values.global.destination.namespace }}
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
