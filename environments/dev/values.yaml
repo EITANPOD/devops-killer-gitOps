@@ -11,7 +11,7 @@ global:
 
   imagePullSecrets:
     - name: regcred
-
+  
 # Frontend configuration
 frontend:
   appname: frontend
@@ -32,11 +32,11 @@ frontend:
             pathType: ImplementationSpecific
   resources:
     limits:
-      cpu: "500m"
+      cpu: "1000m"
       memory: "512Mi"
     requests:
-      cpu: "250m"
-      memory: "256Mi"
+      cpu: "500m"
+      memory: "512Mi"
 
 # Backend configuration
 backend:
@@ -56,10 +56,19 @@ backend:
         paths:
           - path: /
             pathType: ImplementationSpecific
-  resources:
-    limits:
-      cpu: "1"
-      memory: "1024Mi"
-    requests:
-      cpu: "500m"
-      memory: "512Mi"
+
+  configmap:
+    name: app-config
+    env:
+    - FLASK_APP: "app.py"
+    - FLASK_ENV: "development"
+    - SQLALCHEMY_DATABASE_URI: "postgresql://eitanUser:eitanPassword@recipes-db.czqakocysnbb.us-east-1.rds.amazonaws.com:5432/recipesDB"
+  
+
+    resources:
+      limits:
+        cpu: "1000m"
+        memory: "512Mi"
+      requests:
+        cpu: "500m"
+        memory: "512Mi"
