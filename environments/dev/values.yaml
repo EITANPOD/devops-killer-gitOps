@@ -60,15 +60,13 @@ backend:
   configmap:
     name: app-config
     env:
-    - FLASK_APP: "app.py"
-    - FLASK_ENV: "development"
-    - SQLALCHEMY_DATABASE_URI: "postgresql://eitanUser:eitanPassword@recipes-db.czqakocysnbb.us-east-1.rds.amazonaws.com:5432/recipesDB"
-  
+      FLASK_APP: "app.py"
+      FLASK_ENV: "development"
 
-    resources:
-      limits:
-        cpu: "1000m"
-        memory: "512Mi"
-      requests:
-        cpu: "500m"
-        memory: "512Mi"
+  resources:
+    limits:
+      cpu: "1000m"
+      memory: "512Mi"
+    requests:
+      cpu: "500m"
+      memory: "512Mi"

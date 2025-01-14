@@ -1,25 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ .Values.global.name }}
+  name: argocd-application
   namespace: argocd
 
 spec:
   project: default
 
   sources:
-  - repoURL: {{ .Values.global.gitopsRepoURL }}
-    targetRevision: {{ .Values.global.targetRevision }}
+  - repoURL: https://github.com/EITANPOD/devops-killer-gitOps.git
+    targetRevision: HEAD
     ref: values
-  - repoURL: {{ .Values.global.projectRepoURL }}
-    targetRevision: {{ .Values.global.targetRevision }}
+  - repoURL: https://github.com/EITANPOD/devops-killer-project.git
+    targetRevision: HEAD
     path: app-helm-chart
     helm:
       valueFiles: 
-        - $values/environments/{{ .Values.global.environments }}/values.yaml
+        - $values/environments/prod/values.yaml
   destination: 
-    server: {{ .Values.global.destination.server }}
-    namespace: {{ .Values.global.destination.namespace }}
+    server: https://kubernetes.default.svc
+    namespace: default
 
   syncPolicy:
     automated:
