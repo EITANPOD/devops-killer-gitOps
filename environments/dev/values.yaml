@@ -19,7 +19,7 @@ frontend:
     repository: 992382853618.dkr.ecr.us-east-1.amazonaws.com/eitan/project
     tag: frontend-b2be1f2
     pullPolicy: Always
-  replicaCount: 3
+  replicaCount: 1
   service:
     type: ClusterIP
     port: 80
@@ -45,7 +45,7 @@ backend:
     repository: 992382853618.dkr.ecr.us-east-1.amazonaws.com/eitan/project
     tag: backend-b2be1f2
     pullPolicy: Always
-  replicaCount: 3
+  replicaCount: 1
   service:
     type: ClusterIP
     port: 5000
