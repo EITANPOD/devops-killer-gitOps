@@ -70,3 +70,12 @@ backend:
     requests:
       cpu: "500m"
       memory: "512Mi"
+
+ingress:
+  name: app-ingress
+  ingressClassName: nginx
+  host: app.eitp.online
+  namespace: default
+  pathType: ImplementationSpecific
+
+
