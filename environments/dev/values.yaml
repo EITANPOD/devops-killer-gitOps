@@ -17,7 +17,7 @@ frontend:
   appname: frontend
   image:
     repository: 992382853618.dkr.ecr.us-east-1.amazonaws.com/eitan/project
-    tag: frontend-f6f84d5
+    tag: frontend-207dec3
     pullPolicy: Always
   replicaCount: 1
   service:
@@ -43,7 +43,7 @@ backend:
   appname: backend
   image:
     repository: 992382853618.dkr.ecr.us-east-1.amazonaws.com/eitan/project
-    tag: backend-f6f84d5
+    tag: backend-207dec3
     pullPolicy: Always
   replicaCount: 1
   service:
