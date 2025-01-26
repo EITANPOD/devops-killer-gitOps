@@ -45,7 +45,7 @@ backend:
     repository: 992382853618.dkr.ecr.us-east-1.amazonaws.com/eitan/project
     tag: backend-c8fcb14
     pullPolicy: Always
-  replicaCount: 10
+  replicaCount: 1
   service:
     type: ClusterIP
     port: 5000
